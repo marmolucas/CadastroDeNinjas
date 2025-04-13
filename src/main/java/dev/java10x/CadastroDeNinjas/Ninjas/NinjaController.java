@@ -15,13 +15,10 @@ public class NinjaController {
         this.ninjaService = ninjaService;
     }
 
-
-
     @GetMapping("/boasvindas")
     public String boasVindas(){
        return "Essa é a minha API";
     }
-
 
     // Mostrar todos os ninjas (read)
     @GetMapping("/listar")
@@ -43,9 +40,9 @@ public class NinjaController {
     }
 
     // Alterar dados dos ninjas (update)
-    @PutMapping("/alterarId")
-    public String alterarNinjaPorId(){
-        return "Alterado!";
+    @PutMapping("/alterar/{id}")
+    public NinjaModel alterarNinjaPorId(@PathVariable Long id, @RequestBody NinjaModel ninjaAtualizado){
+        return ninjaService.atualizarNinja(id,ninjaAtualizado);
     }
 
     // Deletar ninja (delete)
@@ -53,5 +50,14 @@ public class NinjaController {
     public void deletaNinjaPorId(@PathVariable Long id){
         ninjaService.deletaNinja(id);
     }
+
+
+
+
+
+
+
+
+
 
 }
