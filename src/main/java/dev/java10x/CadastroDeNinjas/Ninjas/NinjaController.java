@@ -35,7 +35,7 @@ public class NinjaController {
     // Adicionar ninja (create)
     @PostMapping("/criar")
     //Utiliza o @RequestBody pois as informações serão mandadas no corpo da requisição
-    public NinjaModel criarNinja(@RequestBody NinjaModel ninja){
+    public NinjaDTO criarNinja(@RequestBody NinjaDTO ninja){
         return ninjaService.criarNinja(ninja);
     }
 
